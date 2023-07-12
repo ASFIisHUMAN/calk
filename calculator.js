@@ -1,12 +1,15 @@
 const display= document.querySelector('#display');
 const buttons=document.querySelectorAll('button');
+function handleBackspace() {
+    display.innerText = display.innerText.slice(0, -1);
+  }
+
 buttons.forEach((item)=>{
     item.onclick =  ()=>{
         if(item.id == 'clear'){
             display.innerText='';
         }else if(item.id=='backspace'){
-            let string = display.innerText.tostring();
-            display.innerText=string.substr(0, string.length - 1)
+     handleBackspace();
         }else if(display.innerText !='' && item.id=='equal'){
             display.innerText=eval(display.innerText);
         }else if( display.innerText=='' && item.id=='equal'){
